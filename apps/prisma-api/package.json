@@ -1,8 +1,7 @@
 {
-  "name": "api",
+  "name": "prisma-api",
   "version": "1.0.0",
   "scripts": {
-    "dev": "node start-go.js",
     "prisma:migrate": "dotenv -e ../../.env -- prisma migrate dev --name init",
     "prisma:studio": "dotenv -e ../../.env -- prisma studio"
   },
