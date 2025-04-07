@@ -4,10 +4,13 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/AnishKhamkar7/todo-api/db"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
+
+	db.DbConfig()
 
 	router := gin.Default()
 
@@ -18,5 +21,4 @@ func main() {
 
 	fmt.Println("Server Running on port 8070")
 	server.ListenAndServe()
-
 }
