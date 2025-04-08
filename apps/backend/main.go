@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/AnishKhamkar7/todo-api/db"
+	"github.com/AnishKhamkar7/todo-api/routes"
 	"github.com/gin-gonic/gin"
 )
 
@@ -18,6 +19,8 @@ func main() {
 		Addr:    ":8070",
 		Handler: router,
 	}
+
+	routes.SetupRoutes()
 
 	fmt.Println("Server Running on port 8070")
 	server.ListenAndServe()
