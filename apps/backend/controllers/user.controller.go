@@ -14,9 +14,20 @@ type LoginInput struct {
 }
 
 func RegisterUser() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		c.JSON(200, gin.H{"message": "Inside returned handler!"})
+	}
 
 }
 
 func LoginUser() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		c.JSON(200, gin.H{"message": "Inside returned handler!"})
+	}
+}
 
+func AdminDashboard() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		c.JSON(200, gin.H{"message": "Inside returned handler!"})
+	}
 }
