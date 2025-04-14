@@ -9,9 +9,11 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func main() {
-
+func init() {
 	db.DbConfig()
+}
+
+func main() {
 
 	router := gin.Default()
 
