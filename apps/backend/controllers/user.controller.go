@@ -1,6 +1,10 @@
 package controllers
 
-import "github.com/gin-gonic/gin"
+import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+)
 
 type RegisterInput struct {
 	Username string `json:"username"`
@@ -15,9 +19,19 @@ type LoginInput struct {
 
 func RegisterUser() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		c.JSON(200, gin.H{"message": "Inside returned handler!"})
-	}
+		var login LoginInput
 
+		if err := c.ShouldBindJSON(&login); err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			return
+		}
+
+		email := login.Email
+		password := login.Password
+
+		c.JSON(200, gin.H{"EMAIL": email,
+			"PASSWORD": password})
+	}
 }
 
 func LoginUser() gin.HandlerFunc {
