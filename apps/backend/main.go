@@ -17,12 +17,12 @@ func main() {
 
 	router := gin.Default()
 
+	routes.SetupRoutes(router)
+
 	server := &http.Server{
 		Addr:    ":8070",
 		Handler: router,
 	}
-
-	routes.SetupRoutes()
 
 	fmt.Println("Server Running on port 8070")
 	server.ListenAndServe()
